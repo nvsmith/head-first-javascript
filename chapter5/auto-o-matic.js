@@ -2,9 +2,9 @@
 
 
 function makeCar() {
-  var makes = ["Lamborhini", "Maserati", "Audi", "Tesla", "Porsche"];
+  var makes = ["Lamborghini", "Maserati", "Audi", "Tesla", "Porsche"];
   var models = ["Challenge", "500", "XKR", "Bel-Air", "Mulsanne", "GT3"];
-  var years = [1955, 1957, 1948, 1954, 1961];
+  var years = [1955, 1956, 2050, 1975, 1999];
   var colors = ["ruby", "cerulean", "midnight black", "golden", "pearl"];
   var convertible = [true, false];
   // Random option pickers
