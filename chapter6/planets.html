@@ -4,13 +4,22 @@
 <head>
   <meta charset="utf-8">
   <title>Planets</title>
+  <!-- <link rel="stylesheet" href="styles.css"> -->
+  <style>
+    .redtext {
+      color: red;
+    }
+  </style>
   <script>
     function init() {
       var planet = document.getElementById("greenplanet");
       planet.innerHTML = "Red Alert: hit by phaser fire!";
+      planet.setAttribute("class", "redtext");
     }
     window.onload = init;
   </script>
+
+
 </head>
 
 <body>
