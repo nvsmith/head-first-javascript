@@ -1,34 +1,27 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Planets</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <style>
+      .redtext {
+        color: red;
+      }
+    </style>
+    <script></script>
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <title>Planets</title>
-  <!-- <link rel="stylesheet" href="styles.css"> -->
-  <style>
-    .redtext {
-      color: red;
-    }
-  </style>
-  <script>
-    function init() {
-      var planet = document.getElementById("greenplanet");
-      planet.innerHTML = "Red Alert: hit by phaser fire!";
-      planet.setAttribute("class", "redtext");
-    }
-    window.onload = init;
-  </script>
+  <body>
+    <h1>Green Planet</h1>
+    <p id="greenplanet">All is well</p>
+    <h1>Red Planet</h1>
+    <p id="redplanet">Nothing to report</p>
+    <h1>Blue Planet</h1>
+    <p id="blueplanet">All systems A-OK</p>
 
+    <div><button id="runJS">Run JavaScript</button></div>
 
-</head>
-
-<body>
-  <h1>Green Planet</h1>
-  <p id="greenplanet">All is well</p>
-  <h1>Red Planet</h1>
-  <p id="redplanet">Nothing to report</p>
-  <h1>Blue Planet</h1>
-  <p id="blueplanet">All systems A-OK</p>
-</body>
-
+    <script src="planets.js"></script>
+  </body>
 </html>
