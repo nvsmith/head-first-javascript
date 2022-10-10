@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Handlers</title>
+  </head>
+  <body>
+    <section id="textblock">
+      <p>This text should load before the alert pops upon screen.</p>
+    </section>
+
+    <script>
+      // Event Handler
+      function pageLoadedHandler() {
+        alert("Your page has loaded. Prepare for a new message to appear.");
+
+        let newParagraph = document.createElement("p");
+        newParagraph.innerText =
+          "This new message should appear after the alert";
+        document.getElementById("textblock").appendChild(newParagraph);
+      }
+      // Event Listener with the callback function
+      window.onload = pageLoadedHandler;
+    </script>
+  </body>
+</html>
+
+<!-- page 388 -->
