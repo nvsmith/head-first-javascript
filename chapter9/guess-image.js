@@ -1,37 +1,29 @@
-// DOM not created until page finishes loading
-// Make sure no code runs until page loads
+// Note: DOM not created until page finishes loading.
+// Permits no code to run until page loads
 window.onload = init;
 
+// Adds event listeners to all images after page renders
 function init() {
   // gets all images
-  var images = document.getElementsByTagName("img");
-  // adds the same event listener to each image
+  let images = document.getElementsByTagName("img");
+  // adds the same click event listener to each image
   for (let i = 0; i < images.length; i++) {
-    images[i].addEventListener("click", showAnswer);
+    images[i].addEventListener("click", toggleImage);
   }
 }
 
-// function init() {
-//   let image = document
-//     .getElementById("zero")
-//     .addEventListener("click", showAnswer);
-// }
-
-// unblurs an image
-// passes an event object each time an image is clicked
-function showAnswer(eventObj) {
+// Passes an event object each time an image is clicked that
+// unblurs or reblurs an image
+function toggleImage(eventObj) {
   // references the image that was clicked
   let image = eventObj.target;
-  // gets the name  of the blurred image
+  // sets the unblurred name of the image
+  // Note: the image's ID must match its unblurred filename
   let name = image.id;
-  // sets the name to the unblurred image
-  name = `${name}.jpg`;
-  // changes the img source to the unblurred image
-  image.src = `img/${name}`;
+  // toggles between the blurred and unblurred image sources
+  if (image.getAttribute("src") === `img/${name}.jpg`) {
+    image.setAttribute("src", `img/${name}blur.jpg`);
+  } else {
+    image.setAttribute("src", `img/${name}.jpg`);
+  }
 }
-
-// // unblurs an image
-// function showAnswer() {
-//   let image = document.getElementById("zero");
-//   image.src = "img/zero.jpg";
-// }
