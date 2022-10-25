@@ -7,7 +7,7 @@ const passengers = [
 
 // Checks all passengers for a testable condition which will stall the plane's takeoff
 function processPassengers(passengers, testFunction) {
-  // iterates through passenger list
+  // iterates through passengers
   for (let i = 0; i < passengers.length; i++) {
     // applies a test condition for passengers
     if (testFunction(passengers[i])) {
@@ -40,3 +40,18 @@ let allPaid = processPassengers(passengers, checkNotPaid);
 if (!allPaid) {
   console.log("Not everyone has paid.");
 }
+
+// Prints passenger names and payment status
+function printPassenger(passenger) {
+  let message;
+  if (passenger.paid) {
+    message = `${passenger.name} has paid`;
+  } else {
+    message = `${passenger.name} has not paid`;
+  }
+  console.log(message);
+  return false;
+}
+
+// Processes passengers for printing names and payments
+processPassengers(passengers, printPassenger);
