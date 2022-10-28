@@ -1,8 +1,8 @@
 const passengers = [
-  { name: "Jack", paid: true },
-  { name: "Cruella", paid: true },
-  { name: "John", paid: false },
-  { name: "Jane", paid: false },
+  { name: "Jack", paid: true, ticket: "coach" },
+  { name: "Cruella", paid: true, ticket: "firstclass" },
+  { name: "John", paid: false, ticket: "firstclass" },
+  { name: "Jane", paid: false, ticket: "coach" },
 ];
 
 // Checks all passengers for a testable condition which will stall the plane's takeoff
@@ -55,3 +55,70 @@ function printPassenger(passenger) {
 
 // Processes passengers for printing names and payments
 processPassengers(passengers, printPassenger);
+
+// Handles the flight attendant responsibilites
+function serveCustomer(passenger) {
+  // gets the drink order
+  var getDrinkOrderFunction = createDrinkOrder(passenger);
+
+  // calls the drink order
+  getDrinkOrderFunction();
+
+  // gets dinner order
+  var getDinnerOrderFunction = createDinnerOrder(passenger);
+
+  // calls the dinner order
+  getDinnerOrderFunction();
+}
+
+// Returns a function that can create a drink order
+function createDrinkOrder(passenger) {
+  // creates a variable to hold the function to place an order
+  let orderFunction;
+
+  if (passenger.ticket === "firstclass") {
+    orderFunction = function () {
+      alert("Cocktail or wine?");
+    };
+  } else if (passenger.ticket === "premium") {
+    orderFunction = function () {
+      alert("Soda, water, or wine?");
+    };
+  } else {
+    orderFunction = function () {
+      alert("Soda or water?");
+    };
+  }
+  return orderFunction;
+}
+
+// Returns a function that can create a dinner order
+function createDinnerOrder(passenger) {
+  // creates a variable to hold the function to place an order
+  let orderFunction;
+
+  if (passenger.ticket === "firstclass") {
+    orderFunction = function () {
+      alert("Chicken or pasta?");
+    };
+  } else if (passenger.ticket === "premium") {
+    orderFunction = function () {
+      alert("Snack box or cheese plate?");
+    };
+  } else {
+    orderFunction = function () {
+      alert("Peanuts or pretzels?");
+    };
+  }
+  return orderFunction;
+}
+
+// Gets service instructions per passenger for flight attendants
+function servePassengers(passengers) {
+  for (let i = 0; i < passengers.length; i++) {
+    serveCustomer(passengers[i]);
+  }
+}
+
+// Begins passenger service
+servePassengers(passengers);
